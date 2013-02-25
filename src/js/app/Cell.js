@@ -7,8 +7,9 @@
  */
 define(function () {
 
-	function Cell(){
-		this.view;
+	function Cell( type ){
+		this.type = type; // the type of cell. see CellTypes
+		this.view; // an EaselJS display object that can be added to a container
 	}
 
 	return Cell;

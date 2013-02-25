@@ -28,8 +28,7 @@ define(function () {
 		var n = board.cells.length;
 		for (var i = 0; i < n; i++) {
 
-			var x = this._getX(board, i);
-			var y = this._getY(board, i);
+			var coords = board.getCoordinates(i);
 
 			var cell = board.cells[i];
 			var view = cell.view;
@@ -39,8 +38,8 @@ define(function () {
 				this.container.addChild(cell.view.sprite);
 			}
 			cell.view.sprite.gotoAndStop(view.id - 1);
-			cell.view.sprite.x = x * this.tileWidth;
-			cell.view.sprite.y = y * this.tileHeight;
+			cell.view.sprite.x = coords.x * this.tileWidth;
+			cell.view.sprite.y = coords.y * this.tileHeight;
 
 
 			//console.log( view.id );

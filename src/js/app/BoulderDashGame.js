@@ -21,7 +21,7 @@ define(function () {
 	api.step = function step() {
 
 		this.processInput();
-		if (this._elapsedSteps % 4 == 0) {
+		if (this._elapsedSteps > 0) {
 			this.analyseBoard();
 		}
 		this.renderBoard();

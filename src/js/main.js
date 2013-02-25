@@ -11,7 +11,7 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/BoardAnalyser', 'app/Renderer', 'app/MapParser'],
+requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
 	function (BoulderDashGame, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
 		console.log("Main");
 
@@ -53,11 +53,11 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/Bo
 			var game = new BoulderDashGame(board, input, analyser, renderer);
 			console.log(game.name);
 
-			for (i = 0; i < 1; i++) {
+			game.step();
 
-				console.log("___________");
+			stage.onMouseDown = function(e){
 				game.step();
-			}
+			};
 
 			// stage updates
 			createjs.Ticker.setFPS(25);
@@ -72,7 +72,7 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/Bo
 		init('canvas', 'tileset.png', {
 			"width":10,
 			"height":10,
-			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 3, 4, 4, 4, 5, 4, 2, 4, 7, 4, 3, 4, 4, 4, 6, 4, 2, 4, 4, 4, 3, 4, 4, 4, 4, 5, 2, 4, 4, 4, 3, 4, 4, 4, 4, 6, 2, 4, 4, 4, 3, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 2, 4, 4, 4, 3, 4, 4, 4, 4, 4, 2, 4, 4, 4, 3, 4, 4, 4, 4, 4, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 5, 1, 5, 1, 2, 2, 4, 4, 4, 4, 1, 1, 1, 1, 2, 2, 4, 4, 4, 4, 1, 1, 4, 4, 2, 2, 4, 4, 4, 4, 1, 1, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 		});
 
 	});
