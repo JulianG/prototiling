@@ -1,6 +1,5 @@
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
+# WebStorm
+.idea
 
 # Local configuration file (sdk path, etc)
 local.properties
