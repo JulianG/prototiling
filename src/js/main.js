@@ -48,7 +48,7 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/ru
 
 			var input = new InputProcessor();
 			var analyser = new BoardAnalyser();
-			var renderer = new Renderer(stage, tileset, 16, 16);
+			var renderer = new Renderer(stage, tileset, 32, 32);
 
 			var game = new BoulderDashGame(board, input, analyser, renderer);
 			console.log(game.name);
@@ -72,7 +72,7 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/ru
 		init('canvas', 'tileset.png', {
 			"width":10,
 			"height":10,
-			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 5, 1, 5, 1, 2, 2, 4, 4, 4, 4, 1, 1, 1, 1, 2, 2, 4, 4, 4, 4, 1, 1, 4, 4, 2, 2, 4, 4, 4, 4, 1, 1, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 5, 1, 4, 4, 4, 4, 2, 2, 4, 4, 1, 1, 4, 4, 4, 4, 2, 2, 4, 4, 1, 1, 4, 4, 4, 4, 2, 2, 4, 4, 1, 1, 5, 1, 5, 1, 2, 2, 4, 4, 3, 1, 1, 1, 1, 1, 2, 2, 4, 4, 4, 1, 1, 1, 4, 4, 2, 2, 4, 4, 4, 1, 1, 1, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 		});
 
 	});
