@@ -5,7 +5,7 @@
  * Time: 10:42
  * To change this template use File | Settings | File Templates.
  */
-define(['app/control/HeroControl', 'app/CellTypes'], function (HeroControl, CellTypes) {
+define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command'], function (HeroControl, CellTypes, Command) {
 
 	function HeroRules() {
 
@@ -38,14 +38,7 @@ define(['app/control/HeroControl', 'app/CellTypes'], function (HeroControl, Cell
 		next_cell = board.getCell(nx, ny);
 
 		if (next_cell.type == CellTypes.AIR || next_cell.type == CellTypes.SOIL) {
-
-			next_cell.type = CellTypes.AIR;
-			next_cell.rules = null;
-			next_cell.view.disposeSprite();
-			next_cell.view.id = CellTypes.AIR;
-
-			board.setCell(x, y, next_cell);
-			board.setCell(nx, ny, cell);
+			return new Command(Command.MOVE_TO, x, y, nx, ny);
 		}
 	};
 

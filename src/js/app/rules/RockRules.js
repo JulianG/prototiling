@@ -5,7 +5,7 @@
  * Time: 21:40
  * To change this template use File | Settings | File Templates.
  */
-define(['app/CellTypes'], function (CellTypes) {
+define(['app/CellTypes', 'app/rules/Command'], function (CellTypes,Command) {
 
 	function RockRules() {
 	}
@@ -18,9 +18,9 @@ define(['app/CellTypes'], function (CellTypes) {
 		if (south_cell.type == CellTypes.AIR) {
 			// move rock down!
 			console.log("  move rock down!");
-			board.setCell(x, y, south_cell);
-			board.setCell(x, y + 1, cell);
+			return new Command( Command.SWAP, x, y, x, y+1 );
 		}
+		return null;
 	};
 
 	return RockRules;

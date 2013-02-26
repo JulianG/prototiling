@@ -12,8 +12,10 @@ define(function () {
 	api.analyse = function analyse(board) {
 		//console.log('BoardAnalyser.analyse...');
 
+		var commands = [];
+
 		var n = board.cells.length;
-		for (var i = n-1; i >= 0; i--) {
+		for (var i = n - 1; i >= 0; i--) {
 
 			var coords = board.getCoordinates(i);
 
@@ -22,8 +24,19 @@ define(function () {
 			var rules = cell.rules;
 
 			if (rules) {
-				rules.processRules(coords.x, coords.y, cell, board);
+				var cmd = rules.processRules(coords.x, coords.y, cell, board);
+				commands.push(cmd);
 			}
+		}
+
+		this._executeCommands(commands, board);
+	};
+
+	api._executeCommands = function _executeCommands(commands, board) {
+		var n = commands.length;
+		for (var i = 0; i < n; i++) {
+			var cmd = commands[i];
+			if (cmd) cmd.execute(board);
 		}
 	};
 
