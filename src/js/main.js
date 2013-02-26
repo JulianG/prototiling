@@ -54,7 +54,7 @@ requirejs(['lib/KeyPoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/I
 			var game = new BoulderDashGame(board, input, analyser, renderer);
 			console.log(game.name);
 
-			//game.step();
+			game.step();
 
 			// stage updates
 			createjs.Ticker.setFPS(32);
@@ -77,7 +77,7 @@ requirejs(['lib/KeyPoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/I
 		init('canvas', 'tileset.png', {
 			"width":10,
 			"height":10,
-			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 7, 4, 5, 5, 5, 5, 4, 2, 2, 4, 4, 4, 4, 1, 5, 5, 4, 2, 2, 4, 4, 4, 4, 4, 5, 5, 4, 2, 2, 4, 4, 4, 4, 4, 4, 5, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 1, 4, 4, 4, 4, 2, 2, 4, 7, 4, 1, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 		});
 
 	});
