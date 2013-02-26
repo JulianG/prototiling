@@ -21,7 +21,7 @@ define(function () {
 	api.step = function step() {
 
 		this.processInput();
-		if (this._elapsedSteps > 0) {
+		if (this._elapsedSteps % 4 == 0) {
 			this.analyseBoard();
 		}
 		this.renderBoard();
@@ -29,17 +29,14 @@ define(function () {
 	};
 
 	api.processInput = function processInput() {
-		console.log("BoulderDashGame.processInput...");
 		this.inputProcessor.processInput(this.board);
 	};
 
 	api.analyseBoard = function analyseBoard() {
-		console.log("BoulderDashGame.analyseBoard...");
 		this.analyser.analyse(this.board);
 	};
 
 	api.renderBoard = function renderBoard() {
-		console.log("BoulderDashGame.renderBoard...");
 		this.render.renderBoard(this.board);
 	};
 

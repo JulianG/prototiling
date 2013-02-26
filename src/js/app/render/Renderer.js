@@ -23,7 +23,7 @@ define(function () {
 	var api = Renderer.prototype;
 
 	api.renderBoard = function renderBoard(board) {
-		console.log("Renderer.renderBoard...");
+		//console.log("Renderer.renderBoard...");
 
 		var n = board.cells.length;
 		for (var i = 0; i < n; i++) {

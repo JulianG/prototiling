@@ -13,7 +13,7 @@ define(['app/CellTypes'], function (CellTypes) {
 	var api = RockRules.prototype;
 
 	api.processRules = function processRules(x, y, cell, board) {
-		console.log("RockRules.processRules for x:" + x + ", y:" + y);
+		//console.log("RockRules.processRules for x:" + x + ", y:" + y);
 		var south_cell = board.getCell(x, y + 1);
 		if (south_cell.type == CellTypes.AIR) {
 			// move rock down!

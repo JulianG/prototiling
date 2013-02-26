@@ -10,7 +10,7 @@ define(function () {
 	var api = BoardAnalyser.prototype;
 
 	api.analyse = function analyse(board) {
-		console.log('BoardAnalyser.analyse...');
+		//console.log('BoardAnalyser.analyse...');
 
 		var n = board.cells.length;
 		for (var i = n-1; i >= 0; i--) {

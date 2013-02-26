@@ -11,8 +11,8 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
-	function (BoulderDashGame, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
+requirejs(['lib/KeyPoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
+	function (KeyPoll, BoulderDashGame, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
 		console.log("Main");
 
 		var stage;
@@ -38,7 +38,8 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/ru
 
 		function initGame() {
 
-			var mp = new MapParser();
+			var kp = new KeyPoll(document);
+			var mp = new MapParser(kp);
 			var cells = mp.parseObject(mapObj);
 
 			var board = new GameBoard();
@@ -53,15 +54,19 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/ru
 			var game = new BoulderDashGame(board, input, analyser, renderer);
 			console.log(game.name);
 
-			game.step();
-
-			stage.onMouseDown = function(e){
-				game.step();
-			};
+			//game.step();
 
 			// stage updates
-			createjs.Ticker.setFPS(25);
+			createjs.Ticker.setFPS(16);
 			createjs.Ticker.addListener(stage);
+
+			createjs.Ticker.addEventListener("tick", function (event) {
+				// Actions carried out each frame
+				game.step();
+
+				//console.log(kp.isDown(KeyPoll.UP));
+			});
+
 
 		}
 
@@ -72,7 +77,7 @@ requirejs(['app/BoulderDashGame', 'app/GameBoard', 'app/InputProcessor', 'app/ru
 		init('canvas', 'tileset.png', {
 			"width":10,
 			"height":10,
-			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 5, 1, 4, 4, 4, 4, 2, 2, 4, 4, 1, 1, 4, 4, 4, 4, 2, 2, 4, 4, 1, 1, 4, 4, 4, 4, 2, 2, 4, 4, 1, 1, 5, 1, 5, 1, 2, 2, 4, 4, 3, 1, 1, 1, 1, 1, 2, 2, 4, 4, 4, 1, 1, 1, 4, 4, 2, 2, 4, 4, 4, 1, 1, 1, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 7, 4, 5, 5, 5, 5, 4, 2, 2, 4, 4, 4, 1, 1, 1, 1, 4, 2, 2, 4, 4, 4, 1, 1, 1, 1, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 6, 4, 4, 6, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 		});
 
 	});
