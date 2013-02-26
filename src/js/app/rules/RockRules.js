@@ -47,11 +47,9 @@ define(['app/CellTypes', 'app/rules/Command'], function (CellTypes, Command) {
 					return [new Command(Command.MOVE_TO, x, y, x + 1, y)];
 				}
 			}
-
-			// otherwise
-			this.falling = false;
-
 		}
+		// otherwise
+		this.falling = false;
 		return [];
 	};
 
