@@ -5,11 +5,12 @@
  * Time: 10:41
  * To change this template use File | Settings | File Templates.
  */
-define(['lib/KeyPoll'], function (KeyPoll) {
+define(['lib/KeyPoll', 'lib/SwipePoll'], function (KeyPoll, SwipePoll) {
 
-	function HeroControl(keypoll) {
+	function HeroControl(keypoll, swipepoll) {
+		this.swipepoll = swipepoll
 		this.keypoll = keypoll;
-		this.direction = 'e';
+		this.direction = 'x';
 	}
 
 	HeroControl.DIR_NORTH = 'n';
@@ -26,6 +27,15 @@ define(['lib/KeyPoll'], function (KeyPoll) {
 		if (this.keypoll.isDown(KeyPoll.DOWN)) this.direction = HeroControl.DIR_SOUTH;
 		if (this.keypoll.isDown(KeyPoll.LEFT)) this.direction = HeroControl.DIR_WEST;
 		if (this.keypoll.isDown(KeyPoll.RIGHT)) this.direction = HeroControl.DIR_EAST;
+		//
+		if(this.direction == HeroControl.DIR_NONE){
+			// check swipe
+			var v = this.swipepoll.getSwipe();
+			if(v){
+				var dir = v.getDirection();
+				this.direction = dir; // SwipePoll direction constants match HeroControl "DIR" constants.
+			}
+		}
 	};
 
 	return HeroControl;

@@ -11,8 +11,8 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['lib/KeyPoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
-	function (KeyPoll, BoulderDashGame, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
+requirejs(['lib/KeyPoll', 'lib/SwipePoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
+	function (KeyPoll, SwipePoll, BoulderDashGame, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
 		console.log("Main");
 
 		var stage;
@@ -39,7 +39,9 @@ requirejs(['lib/KeyPoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/I
 		function initGame() {
 
 			var kp = new KeyPoll(document);
-			var mp = new MapParser(kp);
+
+			var sp = new SwipePoll(stage);
+			var mp = new MapParser(kp, sp);
 			var cells = mp.parseObject(mapObj);
 
 			var board = new GameBoard();
@@ -77,7 +79,7 @@ requirejs(['lib/KeyPoll', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/I
 		init('canvas', 'tileset.png', {
 			"width":10,
 			"height":10,
-			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 1, 4, 4, 4, 4, 2, 2, 4, 7, 4, 1, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 5, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+			"data":[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 4, 4, 7, 4, 2, 2, 4, 4, 3, 3, 3, 3, 3, 3, 2, 2, 4, 4, 3, 4, 5, 4, 4, 5, 2, 2, 4, 4, 3, 4, 4, 4, 4, 5, 2, 2, 4, 4, 5, 1, 4, 4, 4, 5, 2, 2, 4, 4, 3, 1, 4, 4, 4, 5, 2, 2, 4, 4, 3, 4, 4, 4, 4, 5, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 		});
 
 	});

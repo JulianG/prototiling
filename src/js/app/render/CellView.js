@@ -15,9 +15,12 @@ define(function () {
 	var api = CellView.prototype;
 
 	api.disposeSprite = function dispose() {
-		if(this.sprite.parent){
-			this.sprite.parent.removeChild(this.sprite);
-			this.sprite = null;
+		if(this.sprite)
+		{
+			if(this.sprite.parent){
+				this.sprite.parent.removeChild(this.sprite);
+				this.sprite = null;
+			}
 		}
 	};
 

@@ -24,8 +24,11 @@ define(function () {
 			var rules = cell.rules;
 
 			if (rules) {
-				var cmd = rules.processRules(coords.x, coords.y, cell, board);
-				commands.push(cmd);
+				var rule_commands = rules.processRules(coords.x, coords.y, cell, board);
+				var m = rule_commands.length;
+				for(var j=0; j<m; j++){
+					commands.push(rule_commands[j]);
+				}
 			}
 		}
 

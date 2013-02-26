@@ -8,6 +8,7 @@
 define(['app/CellTypes', 'app/rules/Command'], function (CellTypes, Command) {
 
 	function RockRules() {
+		this.falling = false;
 	}
 
 	var api = RockRules.prototype;
@@ -17,8 +18,13 @@ define(['app/CellTypes', 'app/rules/Command'], function (CellTypes, Command) {
 		var south_cell = board.getCell(x, y + 1);
 		if (south_cell.type == CellTypes.AIR) {
 			// move rock down!
-			console.log("  move rock down!");
-			return new Command(Command.MOVE_TO, x, y, x, y + 1);
+			this.falling = true;
+			return [new Command(Command.MOVE_TO, x, y, x, y + 1)];
+		}
+		if(south_cell.type == CellTypes.HERO){
+			if(this.falling){
+				return [new Command(Command.MOVE_TO, x, y, x, y + 1)];
+			}
 		}
 		if (south_cell.type == CellTypes.ROCK) {
 			var north_cell = board.getCell(x, y - 1);
@@ -33,15 +39,20 @@ define(['app/CellTypes', 'app/rules/Command'], function (CellTypes, Command) {
 			if (true) {
 
 				if (west_cell.type == CellTypes.AIR && southwest_cell.type == CellTypes.AIR && northwest_cell.type != CellTypes.ROCK) {
-					return new Command(Command.MOVE_TO, x, y, x - 1, y);
+					this.falling = true;
+					return [new Command(Command.MOVE_TO, x, y, x - 1, y)];
 				}
 				if (east_cell.type == CellTypes.AIR && southeast_cell.type == CellTypes.AIR && northeast_cell.type != CellTypes.ROCK) {
-					return new Command(Command.MOVE_TO, x, y, x + 1, y);
+					this.falling = true;
+					return [new Command(Command.MOVE_TO, x, y, x + 1, y)];
 				}
 			}
 
+			// otherwise
+			this.falling = false;
+
 		}
-		return null;
+		return [];
 	};
 
 	return RockRules;

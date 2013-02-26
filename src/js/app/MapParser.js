@@ -9,8 +9,9 @@ define(
 	['app/Cell', 'app/CellTypes', 'app/render/CellView', 'app/rules/RockRules', 'app/rules/HeroRules', 'app/control/HeroControl'],
 	function (Cell, CellTypes, CellView, RockRules, HeroRules, HeroControl) {
 
-		function MapParser(keypoll) {
+		function MapParser(keypoll, swipepoll) {
 			this.keypoll = keypoll;
+			this.swipepoll = swipepoll;
 
 		}
 
@@ -47,7 +48,7 @@ define(
 			var control = null;
 			switch (type) {
 				case CellTypes.HERO:
-					control = new HeroControl(this.keypoll);
+					control = new HeroControl(this.keypoll, this.swipepoll);
 					break;
 			}
 			return control;
