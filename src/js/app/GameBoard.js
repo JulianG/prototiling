@@ -5,6 +5,9 @@
 define(function () {
 
 	function GameBoard() {
+
+		this.collected = new signals.Signal();
+
 		this.width;
 		this.height;
 		this.cells = [];

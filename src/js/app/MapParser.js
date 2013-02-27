@@ -56,11 +56,20 @@ define(
 
 		api._getRules = function _getRules(type) {
 			var rules = null;
-			var rules_dict = [];
-			rules_dict[CellTypes.ROCK] = RockRules;
-			rules_dict[CellTypes.HERO] = HeroRules;
-			var rules_class = rules_dict[type];
-			if (rules_class) rules = new rules_class();
+
+			switch(type){
+				case CellTypes.DIAMOND:
+					rules = new RockRules();
+					rules.crushHero = false;
+					break;
+				case CellTypes.ROCK:
+					rules = new RockRules();
+					rules.crushHero = true;
+					break;
+				case CellTypes.HERO:
+					rules = new HeroRules();
+					break;
+			}
 			return rules;
 		};
 

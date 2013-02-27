@@ -18,6 +18,7 @@ define(['app/CellTypes'], function (CellTypes) {
 
 	Command.SWAP = "swap";
 	Command.MOVE_TO = "move_to";
+	Command.COLLECT = "collect";
 
 	var api = Command.prototype;
 
@@ -28,19 +29,21 @@ define(['app/CellTypes'], function (CellTypes) {
 
 		switch (this.action) {
 			case Command.SWAP:
-				board.setCell(this.targetX, this.targetY, sourceCell);
-				board.setCell(this.sourceX, this.sourceY, targetCell);
+				//board.setCell(this.targetX, this.targetY, sourceCell);
+				//board.setCell(this.sourceX, this.sourceY, targetCell);
 				break;
+			case Command.COLLECT:
+				board.collected.dispatch(targetCell);
+				// and continue to next case
 			case Command.MOVE_TO:
-
 				board.setCell(this.targetX, this.targetY, sourceCell);
 				board.setCell(this.sourceX, this.sourceY, targetCell);
-
 				targetCell.type = CellTypes.AIR;
 				targetCell.rules = null;
 				targetCell.view.disposeSprite();
 				targetCell.view.id = CellTypes.AIR;
 				break;
+
 		}
 	}
 

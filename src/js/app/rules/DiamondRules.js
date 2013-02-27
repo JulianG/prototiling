@@ -1,32 +1,27 @@
 /**
  * Created with JetBrains WebStorm.
  * User: julian
- * Date: 25/02/13
- * Time: 21:40
+ * Date: 27/02/13
+ * Time: 10:07
  * To change this template use File | Settings | File Templates.
  */
 define(['app/CellTypes', 'app/rules/Command'], function (CellTypes, Command) {
 
-	function RockRules() {
+	function DiamondRules(){
 		this.falling = false;
-		this.crushHero = false;
 	}
 
-	var api = RockRules.prototype;
+	var api = DiamondRules.prototype;
 
 	api.processRules = function processRules(x, y, cell, board) {
-		//console.log("RockRules.processRules for x:" + x + ", y:" + y);
+		//console.log("DiamondRules.processRules for x:" + x + ", y:" + y);
 		var south_cell = board.getCell(x, y + 1);
 		if (south_cell.type == CellTypes.AIR) {
-			// move rock down!
+			// move diamond down!
 			this.falling = true;
 			return [new Command(Command.MOVE_TO, x, y, x, y + 1)];
 		}
-		if(south_cell.type == CellTypes.HERO && this.crushHero){
-			if(this.falling){
-				return [new Command(Command.MOVE_TO, x, y, x, y + 1)];
-			}
-		}
+
 		if (south_cell.type == CellTypes.ROCK) {
 			var north_cell = board.getCell(x, y - 1);
 			var northwest_cell = board.getCell(x - 1, y - 1);
@@ -54,5 +49,5 @@ define(['app/CellTypes', 'app/rules/Command'], function (CellTypes, Command) {
 		return [];
 	};
 
-	return RockRules;
+	return DiamondRules;
 });
