@@ -45,8 +45,7 @@ define(['app/CellTypes', 'app/rules/HeroRules', 'app/rules/RockRules'], function
 			for (var i = n - 1; i >= 0; i--) {
 
 				var cell = board.cells[i];
-				if(cell.type==type)
-				{
+				if (cell.type == type) {
 					var coords = board.getCoordinates(i);
 					var rules = this._getRulesByType(cell.type);
 

@@ -5,7 +5,7 @@
  * Time: 10:42
  * To change this template use File | Settings | File Templates.
  */
-define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command'], function (HeroControl, CellTypes, Command) {
+define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command', 'app/Directions'], function (HeroControl, CellTypes, Command, Directions) {
 
 	function HeroRules() {
 
@@ -20,17 +20,17 @@ define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command'], functi
 		var nx = x;
 		var ny = y;
 
-		switch (cell.control.direction) {
-			case HeroControl.DIR_EAST:
+		switch (cell.state.direction) {
+			case Directions.EAST:
 				nx++;
 				break;
-			case HeroControl.DIR_WEST:
+			case Directions.WEST:
 				nx--;
 				break;
-			case HeroControl.DIR_NORTH:
+			case Directions.NORTH:
 				ny--;
 				break;
-			case HeroControl.DIR_SOUTH:
+			case Directions.SOUTH:
 				ny++;
 				break;
 		}
@@ -45,17 +45,16 @@ define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command'], functi
 			return [new Command(Command.COLLECT, x, y, nx, ny)];
 		}
 		var push_dir = 0;
-		if (next_cell.type == CellTypes.ROCK && cell.control.direction == HeroControl.DIR_EAST) {
+		if (next_cell.type == CellTypes.ROCK && cell.control.direction == Directions.EAST) {
 			push_dir = 1;
 		}
-		if (next_cell.type == CellTypes.ROCK && cell.control.direction == HeroControl.DIR_WEST) {
+		if (next_cell.type == CellTypes.ROCK && cell.control.direction == Directions.WEST) {
 			push_dir = -1;
 		}
 		if (push_dir != 0) {
 			var beyond_cell = board.getCell(nx + push_dir, y);
-			var under_next_cell = board.getCell(nx,ny+1);
-			if(under_next_cell.type!=CellTypes.AIR)
-			{
+			var under_next_cell = board.getCell(nx, ny + 1);
+			if (under_next_cell.type != CellTypes.AIR) {
 				if (beyond_cell.type == CellTypes.AIR) {
 					// can push!?
 					return [

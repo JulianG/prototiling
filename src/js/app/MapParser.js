@@ -6,8 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 define(
-	['app/Cell', 'app/CellTypes', 'app/render/CellView', 'app/rules/RockRules', 'app/rules/HeroRules', 'app/control/HeroControl'],
-	function (Cell, CellTypes, CellView, RockRules, HeroRules, HeroControl) {
+	['app/Cell', 'app/CellTypes', 'app/render/CellView', 'app/rules/RockRules', 'app/rules/HeroRules', 'app/control/HeroControl', 'app/state/RockState', 'app/state/HeroState'],
+	function (Cell, CellTypes, CellView, RockRules, HeroRules, HeroControl, RockState, HeroState) {
 
 		function MapParser(keypoll, swipepoll) {
 			this.keypoll = keypoll;
@@ -36,12 +36,26 @@ define(
 		api._getCellByChar = function _getCellByChar(type) {
 
 			var cell = new Cell(type);
-
+			cell.state = this._getState(type);
 			cell.control = this._getControl(type);
 			cell.view = new CellView(type);
 
 			return cell;
 		};
+
+		api._getState = function _getState(type) {
+			var state = null;
+			switch (type) {
+				case CellTypes.ROCK:
+				case CellTypes.DIAMOND:
+					state = new RockState();
+					break;
+				case CellTypes.HERO:
+					state = new HeroState();
+					break;
+			}
+			return state;
+		}
 
 		api._getControl = function _getControl(type) {
 			var control = null;
