@@ -16,8 +16,13 @@ define(function () {
 	var api = GameBoard.prototype;
 
 	api.getCell = function getCell(x, y) {
-		var indx = y * this.width + x;
-		return this.cells[indx];
+		var cell = null;
+		if(x<this.width && y<this.height)
+		{
+			var indx = y * this.width + x;
+			cell = this.cells[indx];
+		}
+		return cell;
 	};
 
 	api.setCell = function setCell(x, y, cell) {

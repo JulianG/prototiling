@@ -15,13 +15,13 @@ define(['lib/KeyPoll', 'lib/SwipePoll', 'app/Directions'], function (KeyPoll, Sw
 	var api = HeroControl.prototype;
 
 	api.processInput = function processInput(x, y, cell, board) {
-		this.direction = HeroControl.DIR_NONE;
+		cell.state.direction = Directions.NONE;
 		if (this.keypoll.isDown(KeyPoll.UP)) cell.state.direction = Directions.NORTH;
 		if (this.keypoll.isDown(KeyPoll.DOWN)) cell.state.direction = Directions.SOUTH;
 		if (this.keypoll.isDown(KeyPoll.LEFT)) cell.state.direction = Directions.WEST;
 		if (this.keypoll.isDown(KeyPoll.RIGHT)) cell.state.direction = Directions.EAST;
 		//
-		if (this.direction == HeroControl.DIR_NONE) {
+		if (cell.state.direction == Directions.NONE) {
 			// check swipe
 			var v = this.swipepoll.getSwipe();
 			if (v) {
