@@ -37,7 +37,6 @@ define(
 
 			var cell = new Cell(type);
 
-			cell.rules = this._getRules(type);
 			cell.control = this._getControl(type);
 			cell.view = new CellView(type);
 
@@ -53,26 +52,6 @@ define(
 			}
 			return control;
 		};
-
-		api._getRules = function _getRules(type) {
-			var rules = null;
-
-			switch(type){
-				case CellTypes.DIAMOND:
-					rules = new RockRules();
-					rules.crushHero = false;
-					break;
-				case CellTypes.ROCK:
-					rules = new RockRules();
-					rules.crushHero = true;
-					break;
-				case CellTypes.HERO:
-					rules = new HeroRules();
-					break;
-			}
-			return rules;
-		};
-
 
 		return MapParser;
 	}

@@ -13,6 +13,7 @@ define(function () {
 		SOIL: 4,
 		ROCK: 5,
 		DIAMOND: 6,
-		HERO: 7
+		HERO: 7,
+		EXIT: 8
 	};
 });

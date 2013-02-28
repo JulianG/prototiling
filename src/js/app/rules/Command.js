@@ -28,10 +28,6 @@ define(['app/CellTypes'], function (CellTypes) {
 		var targetCell = board.getCell(this.targetX, this.targetY);
 
 		switch (this.action) {
-			case Command.SWAP:
-				//board.setCell(this.targetX, this.targetY, sourceCell);
-				//board.setCell(this.sourceX, this.sourceY, targetCell);
-				break;
 			case Command.COLLECT:
 				board.collected.dispatch(targetCell);
 				// and continue to next case
