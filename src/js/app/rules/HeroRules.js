@@ -5,7 +5,7 @@
  * Time: 10:42
  * To change this template use File | Settings | File Templates.
  */
-define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command', 'app/Directions'], function (HeroControl, CellTypes, Command, Directions) {
+define(['app/CellTypes', 'app/rules/Command', 'app/Directions'], function (CellTypes, Command, Directions) {
 
 	function HeroRules() {
 
@@ -49,10 +49,10 @@ define(['app/control/HeroControl', 'app/CellTypes', 'app/rules/Command', 'app/Di
 				return [new Command(Command.COLLECT, x, y, nx, ny)];
 			}
 			var push_dir = 0;
-			if (next_cell.type == CellTypes.ROCK && cell.control.direction == Directions.EAST) {
+			if (next_cell.type == CellTypes.ROCK && cell.state.direction == Directions.EAST) {
 				push_dir = 1;
 			}
-			if (next_cell.type == CellTypes.ROCK && cell.control.direction == Directions.WEST) {
+			if (next_cell.type == CellTypes.ROCK && cell.state.direction == Directions.WEST) {
 				push_dir = -1;
 			}
 			if (push_dir != 0) {
