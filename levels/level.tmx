@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="10" tilewidth="32" tileheight="32" backgroundcolor="#000000">
+ <tileset firstgid="1" name="pickleTile" tilewidth="32" tileheight="32">
+  <properties>
+   <property name="" value=""/>
+  </properties>
+  <image source="tileset.png" width="352" height="32"/>
+ </tileset>
+ <layer name="Level-1" width="20" height="10">
+  <data encoding="base64" compression="zlib">
+   eJytkkEKwDAIBDXRpv9/cXuIsCwKteQwGEKcrOAQkXEY2zhUp7s4z5erAH2L+rT4g30OcL7MZ4mP3wfo47k0ydnxoROzKdWZoBvO98Xn0K+Fzxu++cNnDR9yy7kdDh4z5AJ6
+  </data>
+ </layer>
+</map>

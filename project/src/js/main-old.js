@@ -11,8 +11,8 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs(['lib/KeyPoll', 'lib/SwipePoll', 'app/LevelLoader', 'app/BoulderDashGame', 'app/GameBoard', 'app/control/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
-	function (KeyPoll, SwipePoll, LevelLoader, BoulderDashGame, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
+requirejs(['lib/KeyPoll', 'lib/SwipePoll', 'app/LevelLoader', 'app/GameLoop', 'app/GameBoard', 'app/control/InputProcessor', 'app/rules/BoardAnalyser', 'app/render/Renderer', 'app/MapParser'],
+	function (KeyPoll, SwipePoll, LevelLoader, GameLoop, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
 		console.log("Main");
 
 		var stage;
@@ -53,7 +53,7 @@ requirejs(['lib/KeyPoll', 'lib/SwipePoll', 'app/LevelLoader', 'app/BoulderDashGa
 			var analyser = new BoardAnalyser();
 			var renderer = new Renderer(stage, tileset, 32, 32);
 
-			var game = new BoulderDashGame(board, input, analyser, renderer);
+			var game = new GameLoop(board, input, analyser, renderer);
 			console.log(game.name);
 
 			game.step();

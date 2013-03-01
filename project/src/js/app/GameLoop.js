@@ -2,11 +2,10 @@
  * BoulderDashGame
  * @author Julian
  */
-//define(['app/gameboard','app/gameanalyser'], function ( GameBoard, GameAnalyser ) {
 define(function () {
 	//Do setup work here
 
-	function BoulderDashGame(game_board, input_processor, game_analyser, render) {
+	function GameLoop(game_board, input_processor, game_analyser, render) {
 		this.name = "Boulder Dash";
 		this.board = game_board;
 		this.inputProcessor = input_processor;
@@ -16,7 +15,7 @@ define(function () {
 		this._elapsedSteps = 0;
 	}
 
-	var api = BoulderDashGame.prototype;
+	var api = GameLoop.prototype;
 
 	api.step = function step() {
 
@@ -40,6 +39,6 @@ define(function () {
 		this.render.renderBoard(this.board);
 	};
 
-	return BoulderDashGame;
+	return GameLoop;
 
 });
