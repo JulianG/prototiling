@@ -77,7 +77,7 @@ requirejs(['lib/KeyPoll', 'lib/SwipePoll', 'app/LevelLoader', 'app/BoulderDashGa
 		///////////////////////
 
 		var ll = new LevelLoader();
-		ll.load("level.json", function(level){
+		ll.load("test.json", function(level){
 			console.log(level);
 
 
