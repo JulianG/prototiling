@@ -16,7 +16,7 @@ requirejs(['app/BoulderDashGame'],
 		console.log("Main");
 
 		var bdg = new BoulderDashGame();
-		bdg.init('canvas', "test.json");
+		bdg.init('canvas', "level.json");
 
 
 	});
