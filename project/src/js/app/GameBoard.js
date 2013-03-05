@@ -7,9 +7,8 @@ define(function () {
 	function GameBoard() {
 
 		this.collected = new signals.Signal();
-
-		this.width;
-		this.height;
+		this.width = null;
+		this.height = null;
 		this.cells = [];
 	}
 
@@ -30,7 +29,7 @@ define(function () {
 		if (indx < this.cells.length - 1) {
 			this.cells[indx] = cell;
 		}
-	}
+	};
 
 	api.getCoordinates = function getCoordinates(indx) {
 		return {x:this._getX(indx), y:this._getY(indx) };

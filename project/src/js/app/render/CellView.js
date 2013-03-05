@@ -9,7 +9,7 @@ define(function () {
 	function CellView(id) {
 
 		this.id = id;
-		this.sprite;
+		this.sprite = null;
 	}
 
 	var api = CellView.prototype;

@@ -9,10 +9,10 @@ define(['lib/KeyPoll', 'lib/SwipePoll', 'app/LevelLoader', 'app/GameLoop', 'app/
 ], function (KeyPoll, SwipePoll, LevelLoader, GameLoop, GameBoard, InputProcessor, BoardAnalyser, Renderer, MapParser) {
 
 		function BoulderDashGame() {
-			this.stage;
-			this.tileset;
-			this.tilesetSheet;
-			this.levelMap;
+			this.stage = null;
+			this.tileset = null;
+			this.tilesetSheet = null;
+			this.levelMap = null;
 		}
 
 		var api = BoulderDashGame.prototype;

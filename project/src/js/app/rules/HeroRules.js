@@ -55,7 +55,7 @@ define(['app/CellTypes', 'app/rules/Command', 'app/Directions'], function (CellT
 			if (next_cell.type == CellTypes.ROCK && cell.state.direction == Directions.WEST) {
 				push_dir = -1;
 			}
-			if (push_dir != 0) {
+			if (push_dir !== 0) {
 				var beyond_cell = board.getCell(nx + push_dir, y);
 				var under_next_cell = board.getCell(nx, ny + 1);
 				if (under_next_cell.type != CellTypes.AIR) {

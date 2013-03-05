@@ -33,7 +33,7 @@ define(function () {
 			var cell = board.cells[i];
 			var view = cell.view;
 
-			if (cell.view.sprite == null) {
+			if (cell.view.sprite === null) {
 				cell.view.sprite = new createjs.BitmapAnimation(this.tilesetSheet);
 				this.container.addChild(cell.view.sprite);
 			}

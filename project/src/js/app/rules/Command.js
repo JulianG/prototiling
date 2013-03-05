@@ -27,21 +27,23 @@ define(['app/CellTypes'], function (CellTypes) {
 		var sourceCell = board.getCell(this.sourceX, this.sourceY);
 		var targetCell = board.getCell(this.targetX, this.targetY);
 
-		switch (this.action) {
-			case Command.COLLECT:
-				board.collected.dispatch(targetCell);
-				// and continue to next case
-			case Command.MOVE_TO:
-				board.setCell(this.targetX, this.targetY, sourceCell);
-				board.setCell(this.sourceX, this.sourceY, targetCell);
-				targetCell.type = CellTypes.AIR;
-				targetCell.rules = null;
-				targetCell.view.disposeSprite();
-				targetCell.view.id = CellTypes.AIR;
-				break;
-
+		if (this.action == Command.COLLECT) {
+			board.collected.dispatch(targetCell);
+			board.setCell(this.targetX, this.targetY, sourceCell);
+			board.setCell(this.sourceX, this.sourceY, targetCell);
+			targetCell.type = CellTypes.AIR;
+			targetCell.rules = null;
+			targetCell.view.disposeSprite();
+			targetCell.view.id = CellTypes.AIR;
+		} else if (this.action == Command.MOVE_TO) {
+			board.setCell(this.targetX, this.targetY, sourceCell);
+			board.setCell(this.sourceX, this.sourceY, targetCell);
+			targetCell.type = CellTypes.AIR;
+			targetCell.rules = null;
+			targetCell.view.disposeSprite();
+			targetCell.view.id = CellTypes.AIR;
 		}
-	}
+	};
 
 	return Command;
 });

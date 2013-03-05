@@ -9,7 +9,7 @@ define(function () {
 		this.name = "Boulder Dash";
 		this.board = game_board;
 		this.inputProcessor = input_processor;
-		this.analyser = game_analyser
+		this.analyser = game_analyser;
 		this.render = render;
 
 		this._elapsedSteps = 0;
@@ -20,7 +20,7 @@ define(function () {
 	api.step = function step() {
 
 		this.processInput();
-		if (this._elapsedSteps % 4 == 0 && this._elapsedSteps > 0) {
+		if (this._elapsedSteps % 4 === 0 && this._elapsedSteps > 0) {
 			this.analyseBoard();
 		}
 		this.renderBoard();

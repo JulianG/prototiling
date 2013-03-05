@@ -8,7 +8,7 @@
 define(['lib/KeyPoll', 'lib/SwipePoll', 'app/Directions'], function (KeyPoll, SwipePoll, Directions) {
 
 	function HeroControl(keypoll, swipepoll) {
-		this.swipepoll = swipepoll
+		this.swipepoll = swipepoll;
 		this.keypoll = keypoll;
 	}
 

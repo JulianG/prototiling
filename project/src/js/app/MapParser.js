@@ -21,8 +21,8 @@ define(
 			var list = [];
 			var n = obj.data.length;
 			for (var i = 0; i < n; i++) {
-				var char = obj.data[i];
-				var cell = this._getCellByChar(char);
+				var type = obj.data[i];
+				var cell = this._getCellByChar(type);
 				list.push(cell);
 			}
 
@@ -55,7 +55,7 @@ define(
 					break;
 			}
 			return state;
-		}
+		};
 
 		api._getControl = function _getControl(type) {
 			var control = null;
