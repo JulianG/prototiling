@@ -3,8 +3,13 @@ Prototiling
 
 ## Build ##
 
-1. First time only: **npm install**
-2. Then build using: **node build.js**
+First time only:
+
+	npm install
+
+Then build using:
+
+	node build.js
 
 ---
 
