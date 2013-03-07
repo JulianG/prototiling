@@ -34,24 +34,24 @@ define(function () {
 			}
 		};
 
-		stage.onMouseDown = function (e) {
+		stage.addEventListener('mousedown', function (e) {
 			//console.log("onMouseDown");
 			//console.log(e);
 			begin.x = e.stageX;
 			begin.y = e.stageY;
-		};
-		stage.onMouseUp = function (e) {
+		});
+		stage.addEventListener('mouseup', function (e) {
 			//console.log("onMouseUp");
 			//console.log(e);
 			begin.x = -1000;
 			begin.y = -1000;
-		};
-		stage.onMouseMove = function (e) {
+		});
+		stage.addEventListener('mousemove', function (e) {
 			//console.log("onMouseUp");
 			//console.log(e);
 			current.x = e.stageX;
 			current.y = e.stageY;
-		};
+		});
 	}
 
 	SwipePoll.UP = "n";

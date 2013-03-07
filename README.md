@@ -1,7 +1,11 @@
 Prototiling
 ===========
 
-...
+## Build ##
+
+node r.js -o app.build.js
+
+---
 
 ## To-Do ##
 
