@@ -1,8 +1,6 @@
 # WebStorm
 .idea
 
-build/
-
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -18,3 +16,4 @@ local.properties
 bin/
 gen/
 node_modules
+build/
