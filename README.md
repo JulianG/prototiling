@@ -3,7 +3,8 @@ Prototiling
 
 ## Build ##
 
-node r.js -o app.build.js
+1. First time only: **npm install**
+2. Then build using: **node build.js**
 
 ---
 
