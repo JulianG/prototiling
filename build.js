@@ -1,4 +1,8 @@
+/*
 
+node build.js
+
+*/
 var requirejs = require('requirejs');
 
 var options = {
@@ -15,5 +19,5 @@ var options = {
 console.log('optimizing...');
 requirejs.optimize( options, function(response){
         console.log(response);
-        console.log('optimized!!!');
+		console.log('optimized!');		
     });
