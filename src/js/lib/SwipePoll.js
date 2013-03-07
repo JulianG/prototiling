@@ -7,7 +7,7 @@
  */
 define(function () {
 
-	function SwipePoll(stage) {
+	function SwipePoll(document) {
 
 		var begin = {x:-1000, y:-1000};
 		var current = {x:0, y:0};
@@ -34,23 +34,23 @@ define(function () {
 			}
 		};
 
-		stage.addEventListener('mousedown', function (e) {
+		document.addEventListener('mousedown', function (e) {
 			//console.log("onMouseDown");
 			//console.log(e);
-			begin.x = e.stageX;
-			begin.y = e.stageY;
+			begin.x = e.clientX;
+			begin.y = e.clientY;
 		});
-		stage.addEventListener('mouseup', function (e) {
+		document.addEventListener('mouseup', function (e) {
 			//console.log("onMouseUp");
 			//console.log(e);
 			begin.x = -1000;
 			begin.y = -1000;
 		});
-		stage.addEventListener('mousemove', function (e) {
+		document.addEventListener('mousemove', function (e) {
 			//console.log("onMouseUp");
 			//console.log(e);
-			current.x = e.stageX;
-			current.y = e.stageY;
+			current.x = e.clientX;
+			current.y = e.clientY;
 		});
 	}
 

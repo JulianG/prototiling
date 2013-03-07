@@ -37,7 +37,7 @@ define(['lib/KeyPoll', 'lib/SwipePoll', 'app/LevelLoader', 'app/GameLoop', 'app/
 
 		api._initGame = function _initGame() {
 			var kp = new KeyPoll(document);
-			var sp = new SwipePoll(this.stage);
+			var sp = new SwipePoll(document);//this.stage);
 			var mp = new MapParser(kp, sp);
 			var cells = mp.parseObject(this.levelMap);
 			var board = new GameBoard();
