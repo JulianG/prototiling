@@ -9,6 +9,7 @@ First time only:
 
 Then build using:
 
+    node jshint.js
 	node build.js
 
 ---
