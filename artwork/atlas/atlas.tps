@@ -20,9 +20,9 @@
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>json-array</string>
+        <string>easaljs</string>
         <key>textureFileName</key>
-        <filename>../../project/src/assets/atlas.png</filename>
+        <filename>../../src/assets/atlas.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -111,7 +111,7 @@
             <enum type="AndEngine::MagFilter">MagLinear</enum>
         </struct>
         <key>dataFileName</key>
-        <filename>../../project/src/assets/atlas.json</filename>
+        <filename>../../src/assets/atlas.json</filename>
         <key>mainExtension</key>
         <string></string>
         <key>forceIdenticalLayout</key>
@@ -141,17 +141,7 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>air.png</filename>
-            <filename>brick.png</filename>
-            <filename>diamond.png</filename>
-            <filename>enemy-1.png</filename>
-            <filename>enemy-2.png</filename>
-            <filename>enemy-3.png</filename>
-            <filename>exit-open.png</filename>
-            <filename>hero.png</filename>
-            <filename>metal.png</filename>
-            <filename>rock.png</filename>
-            <filename>soil.png</filename>
+            <filename></filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

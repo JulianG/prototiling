@@ -1,100 +1,39 @@
-{"frames": [
+{
+"images": ["atlas.png"],
+"frames": [
 
-{
-	"filename": "air.png",
-	"frame": {"x":64,"y":32,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
+    [64, 64, 32, 32], 
+    [96, 32, 32, 32], 
+    [64, 32, 32, 32], 
+    [32, 96, 32, 32], 
+    [32, 64, 32, 32], 
+    [32, 32, 32, 32], 
+    [96, 0, 32, 32], 
+    [64, 0, 32, 32], 
+    [32, 0, 32, 32], 
+    [0, 96, 32, 32], 
+    [0, 64, 32, 32], 
+    [0, 32, 32, 32], 
+    [0, 0, 32, 32]
+],
+"animations": {
+    
+        "air":[0], 
+        "brick":[1], 
+        "diamond/0000":[2], 
+        "diamond/0001":[3], 
+        "diamond/0002":[4], 
+        "enemy-1":[5], 
+        "enemy-2":[6], 
+        "enemy-3":[7], 
+        "exit-open":[8], 
+        "hero":[9], 
+        "metal":[10], 
+        "rock":[11], 
+        "soil":[12]
 },
-{
-	"filename": "brick.png",
-	"frame": {"x":32,"y":96,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "diamond.png",
-	"frame": {"x":32,"y":64,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "enemy-1.png",
-	"frame": {"x":32,"y":32,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "enemy-2.png",
-	"frame": {"x":96,"y":0,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "enemy-3.png",
-	"frame": {"x":64,"y":0,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "exit-open.png",
-	"frame": {"x":32,"y":0,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "hero.png",
-	"frame": {"x":0,"y":96,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "metal.png",
-	"frame": {"x":0,"y":64,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "rock.png",
-	"frame": {"x":0,"y":32,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-},
-{
-	"filename": "soil.png",
-	"frame": {"x":0,"y":0,"w":32,"h":32},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
-	"sourceSize": {"w":32,"h":32}
-}],
-"meta": {
-	"app": "http://www.texturepacker.com",
-	"version": "1.0",
-	"image": "atlas.png",
-	"format": "RGBA8888",
-	"size": {"w":128,"h":128},
-	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:020e62caeef29653fcb96a6c01ae99cb$"
-}
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:8663e873a0261796d81ccd31ce313fde$",
+        "Created with TexturePacker (http://www.texturepacker.com) for EasalJS"
+]
 }
